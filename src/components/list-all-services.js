@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import 'firebase/firestore';
-import CardService from '../components/card';
+import CardService from './card';
 import { firebase } from '../connection/firebase';
 const ListAllServices = () => {
   const [services, setServices] = useState([])
@@ -22,13 +22,13 @@ const ListAllServices = () => {
 
   }, [])
   return (
-    <ul>
+    <div className="d-flex flex-row gap-3">
       {
         services.map(
           (service, index) => (<CardService key={index} data={service} />)
         )
       }
-    </ul>
+    </div>
   )
 }
 export default ListAllServices;
