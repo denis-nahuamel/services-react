@@ -3,12 +3,15 @@ import './App.css';
 import Header from './header';
 import CardService from './components/card';
 import AddService from './components/add-service';
-import ListAllServices from './pages/list-all-services';
+import ListAllServices from './components/list-all-services';
+import ServicesPage from './pages/services-page';
 
 function App() {
   return (
-    
-        <ListAllServices />
+        <div className='d-flex flex-column'>
+        <Header />
+        <ServicesPage />
+        </div>
   );
 }
 
