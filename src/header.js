@@ -1,23 +1,22 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
-const Header = () => {
+const Header = ({ onHandleType }) => {
+    const changeType = (value) => {
+        onHandleType(value)
+    }
     return (
         <>
             <h1 className="text-center">Servicios</h1>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">Todos</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="#home">Autos</Nav.Link>
-                            <Nav.Link href="#link">Salud</Nav.Link>
-                            <Nav.Link href="#link2">Hogar</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
+                    <Navbar.Brand href="#home" onClick={()=>changeType("nocategory")}>Todos</Navbar.Brand>
+                    <Nav className="me-auto">
+                        <Nav.Link onClick={()=> changeType("cars")}>Autos</Nav.Link>
+                        <Nav.Link onClick={()=> changeType("health")}>Salud</Nav.Link>
+                        <Nav.Link onClick={()=> changeType("home")}>Hogar</Nav.Link>
+                    </Nav>
                 </Container>
             </Navbar>
         </>
