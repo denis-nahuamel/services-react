@@ -17,7 +17,7 @@ const AddService = () => {
         nombre: '',
         descripcion: ''
     }
-    
+
     useEffect(() => {
         setValues({
             nombre: serviceUpdate.nombre,
@@ -75,7 +75,7 @@ const AddService = () => {
                         <Form.Control type="text" name="descripcion" value={values.descripcion} onChange={handleChange} />
                     </Form.Group>
                 </Card.Body>
-                <Card.Footer >
+                <Card.Footer className="d-flex gap-3">
                     <Button variant="outline-success" type="submit">{type}</Button>
                     <Button variant="outline-danger" onClick={handleCancel}>Cancelar</Button>
                 </Card.Footer>
