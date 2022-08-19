@@ -12,7 +12,12 @@ const AddService = () => {
         descripcion: ''
     })
     const [type, setType] = useState("Grabar");
-
+    const reset = {
+        id: '',
+        nombre: '',
+        descripcion: ''
+    }
+    
     useEffect(() => {
         setValues({
             nombre: serviceUpdate.nombre,
@@ -26,6 +31,13 @@ const AddService = () => {
         setValues({
             ...values, [name]: value
         })
+    }
+    const handleCancel = (event)=>{
+        event.preventDefault();
+        if(type === "Actualizar") 
+            setServiceUpdateContext(reset)
+        else
+            setValues({ nombre: '', descripcion: '' })
     }
     const sendService = (event) => {
         event.preventDefault();
@@ -45,11 +57,7 @@ const AddService = () => {
                 setReloadContext(true);
                 setValues({ nombre: '', descripcion: '' })
             });
-            setServiceUpdateContext({
-                id: '',
-                nombre: '',
-                descripcion: ''
-            })
+            setServiceUpdateContext(reset)
         }
     }
     return (
@@ -69,7 +77,7 @@ const AddService = () => {
                 </Card.Body>
                 <Card.Footer >
                     <Button variant="outline-success" type="submit">{type}</Button>
-                    <Button variant="outline-danger">Cancelar</Button>
+                    <Button variant="outline-danger" onClick={handleCancel}>Cancelar</Button>
                 </Card.Footer>
             </Form>
         </Card>
