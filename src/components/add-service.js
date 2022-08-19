@@ -18,7 +18,7 @@ const AddService = () => {
             nombre: serviceUpdate.nombre,
             descripcion: serviceUpdate.descripcion
         });
-        serviceUpdate.id != '' ? setType("Actualizar") : setType("Grabar")
+        serviceUpdate.id !== '' ? setType("Actualizar") : setType("Grabar")
     }, [serviceUpdate])
 
     const handleChange = (event) => {

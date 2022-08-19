@@ -5,7 +5,7 @@ export const getServices = async (category) =>{
     const db = firebase.firestore().collection('services')
     try{
         let data = null;
-        if(category !="nocategory"){
+        if(category !=="nocategory"){
             data = await db.where("type", "==", category).get();
         }
         else{
