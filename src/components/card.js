@@ -4,7 +4,7 @@ import { useServiceProvider } from '../context/service-context';
 import { deleteService } from '../services/firestore-service';
 const CardService = ({data}) =>{
   const {setReloadContext, setServiceUpdateContext} = useServiceProvider();
-    const {_type,name,description} = data;
+    const {name,description} = data;
     const handleDelete = (event) => {
       event.preventDefault();
       deleteService(data.id).then(()=>setReloadContext(true));
@@ -25,7 +25,7 @@ const CardService = ({data}) =>{
               {description}
             </Card.Text>
           </Card.Body>
-          <Card.Footer >
+          <Card.Footer>
              <Button variant="light" onClick={handleEdit}>Editar</Button>
              <Button variant="light" onClick={handleDelete}>Eliminar</Button>
         </Card.Footer>
