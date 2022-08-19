@@ -2,14 +2,28 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 import Form from 'react-bootstrap/Form';
+import { useServiceProvider } from '../context/service-context';
+import { addService } from '../services/firestore-service';
 const AddService = () => {
+
+    const {typeService ,setReloadContext} = useServiceProvider();
     const sendService = (event)=>{
         event.preventDefault();
         const { nombre, descripcion} = event.target.elements
-        console.log(nombre.value, descripcion.value);
+        const send = {
+            type: typeService,
+            name: nombre.value,
+            description: descripcion.value
+        }
+        addService(send).then(response=>{
+            console.log(response);
+            setReloadContext(true);
+            nombre.value = '';
+            descripcion.value = '';
+        })
     }
     return (
-        <Card style={{ width: '18rem' }} >
+        <Card style={{ width: '20rem', height: '100%' }} >
             <Form onSubmit={sendService}>
                 <Card.Body>
                     <Card.Title >Servicio</Card.Title>
