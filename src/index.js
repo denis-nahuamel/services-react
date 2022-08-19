@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import { ServiceProvider } from './context/service-context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <ServiceProvider>
+      <App />
+    </ServiceProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,10 +1,12 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useServiceProvider } from './context/service-context';
 
-const Header = ({ onHandleType }) => {
+const Header = () => {
+    const {setTypeContext} = useServiceProvider();
     const changeType = (value) => {
-        onHandleType(value)
+        setTypeContext(value)
     }
     return (
         <>

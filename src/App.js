@@ -8,15 +8,12 @@ import ServicesPage from './pages/services-page';
 import { useState } from 'react';
 
 function App() {
-  const [type, setType] = useState("nocategory")
-  const handleType = (value)=>{
-    setType(value)
-  }
+
   return (
-        <div className='d-flex flex-column'>
-        <Header onHandleType={handleType}/>
-        <ServicesPage onSetType={type}/>
-        </div>
+    <div className='d-flex flex-column'>
+      <Header />
+      <ServicesPage />
+    </div>
   );
 }
 
