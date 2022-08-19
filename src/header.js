@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <>
             <h1 className="text-center">Servicios</h1>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="light" >
                 <Container>
                     <Navbar.Brand href="#home" onClick={()=>changeType("nocategory")}>Todos</Navbar.Brand>
                     <Nav className="me-auto">
